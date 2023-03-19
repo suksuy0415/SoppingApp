@@ -23,7 +23,7 @@ services:
 
   user-authentication-service:
     container_name: user-authentication-service
-    build: UserAuthenticationService/
+    build: UserAuthentication/
     networks:
       - my-network
     ports:
@@ -31,21 +31,21 @@ services:
     depends_on:
       - mysqlservice
 #      - eurekaServer
-#      - cloudapiservice
+     #- cloudapiservice
     restart: always
 
-#  user-movie-service:
-#    container_name: user-movie-service
-#    build: UserMovieService/
-#    networks:
-#      - my-network
-#    ports:
-#      - 8081:8081
-#    depends_on:
-#      - mongodbservice
-#      - eurekaServer
-#      - cloudapiservice
-#    restart: always
+  user-movie-service:
+    container_name: user-product-service
+    build: UserProductService/
+    networks:
+      - my-network
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongodbservice
+     # - eurekaServer
+    #  - cloudapiservice
+    restart: always
 #
 #  cloudapiservice:
 #    image: cloud-api-service
