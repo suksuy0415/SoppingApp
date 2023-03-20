@@ -7,10 +7,13 @@ import com.niit.exception.UserAlreadyExistsException;
 import com.niit.exception.UserNotFoundException;
 import com.niit.repository.UserProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
 
+
+@Service
 public class UserProductServiceImpl implements UserProductService{
 
 

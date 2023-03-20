@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongodbservice:27017/products_db  #${MONGO_URI:mongodb://localhost:27017/movies_db}
+  application:
+    name: user-product-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaServer:8761/eureka #http://${EUREKA_SERVER_IP:localhost}:${EUREKA_SERVER_PORT:8761}/eureka
+    fetchRegistry: true
+    registerWithEureka: true

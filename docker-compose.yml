@@ -30,11 +30,11 @@ services:
       - 8085:8085
     depends_on:
       - mysqlservice
-#      - eurekaServer
-     #- cloudapiservice
+      - eurekaServer
+      - cloudapiservice
     restart: always
 
-  user-movie-service:
+  user-product-service:
     container_name: user-product-service
     build: UserProductService/
     networks:
@@ -43,36 +43,36 @@ services:
       - 8081:8081
     depends_on:
       - mongodbservice
-     # - eurekaServer
-    #  - cloudapiservice
+      - eurekaServer
+      - cloudapiservice
     restart: always
 #
-#  cloudapiservice:
-#    image: cloud-api-service
-#    build: SpringCloudAPIGateway/
-#    restart: always
-#    networks:
-#      - my-network
-#    ports:
-#      - 9000:9000
-#    environment:
-#      API_GATEWAY_PORT: 9000
-#      EUREKA_SERVER_IP: localhost
-#      EUREKA_SERVER_PORT: 8761
-#    depends_on:
-#      - eurekaServer
-#
-#
-#  eurekaServer:
-#    image: eureka-service
-#    build: EurekaServer/
-#    restart: always
-#    networks:
-#      - my-network
-#    environment:
-#      EUREKA_SERVER_PORT: 8761
-#    ports:
-#      - 8761:8761
+  cloudapiservice:
+    image: cloud-api-service
+    build: SpringCloudAPI/
+    restart: always
+    networks:
+      - my-network
+    ports:
+      - 9000:9000
+    environment:
+      API_GATEWAY_PORT: 9000
+      EUREKA_SERVER_IP: localhost
+      EUREKA_SERVER_PORT: 8761
+    depends_on:
+      - eurekaServer
+
+
+  eurekaServer:
+    image: eureka-service
+    build: ServerEurekaApp/
+    restart: always
+    networks:
+      - my-network
+    environment:
+      EUREKA_SERVER_PORT: 8761
+    ports:
+      - 8761:8761
 
 networks:
   my-network:

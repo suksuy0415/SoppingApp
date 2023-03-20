@@ -59,6 +59,7 @@
     <module>UserProductService</module>
     <module>UserAuthentication</module>
     <module>SpringCloudAPI</module>
+    <module>ServerEurekaApp</module>
 
 
   </modules>

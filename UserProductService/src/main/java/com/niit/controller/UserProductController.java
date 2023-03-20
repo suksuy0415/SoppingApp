@@ -27,16 +27,16 @@ public class UserProductController {
     }
 
 
-    @PostMapping("/")
+    @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody Customer user) throws UserAlreadyExistsException {
-//        try {
-//            responseEntity =  new ResponseEntity<>(userProductService.registerUser(user), HttpStatus.CREATED);
-//        }
-//        catch(UserAlreadyExistsException e)
-//        {
-//            throw new UserAlreadyExistsException();
-//        }
-        responseEntity =  new ResponseEntity<>("welcome to post method", HttpStatus.OK);
+        try {
+            responseEntity =  new ResponseEntity<>(userProductService.registerUser(user), HttpStatus.CREATED);
+        }
+        catch(UserAlreadyExistsException e)
+        {
+            throw new UserAlreadyExistsException();
+        }
+       // responseEntity =  new ResponseEntity<>("welcome to post method", HttpStatus.OK);
         return responseEntity;
     }
 

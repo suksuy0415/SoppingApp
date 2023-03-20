@@ -9,6 +9,7 @@
         <module name="UserProductService" />
         <module name="UserAuthentication" />
         <module name="SpringCloudAPI" />
+        <module name="ServerEurekaApp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ServerEurekaApp" options="-parameters" />
       <module name="SpringCloudAPI" options="-parameters" />
       <module name="UserAuthentication" options="-parameters" />
       <module name="UserProductService" options="-parameters" />
