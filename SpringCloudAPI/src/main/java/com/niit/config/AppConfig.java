@@ -1,7 +1,7 @@
 package com.niit.config;
 
-import com.niit.filter.JwtFilter;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
+//import com.niit.filter.JwtFilter;
+//import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
@@ -22,11 +22,11 @@ public class AppConfig {
                         .uri("lb://user-product-service"))
                 .build();
     }
-    @Bean
-    public FilterRegistrationBean jwtFilterBean(){
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(new JwtFilter());
-        filterRegistrationBean.addUrlPatterns("/api/v2/user/*");
-        return filterRegistrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean jwtFilterBean(){
+//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+//        filterRegistrationBean.setFilter(new JwtFilter());
+//        filterRegistrationBean.addUrlPatterns("/api/v2/user/*");
+//        return filterRegistrationBean;
+//    }
 }

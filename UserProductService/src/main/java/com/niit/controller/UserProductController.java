@@ -40,7 +40,7 @@ public class UserProductController {
         return responseEntity;
     }
 
-    @PostMapping("user/product/{email}")
+    @PostMapping("/user/product/{email}")
     public ResponseEntity<?> saveUserProduct(@RequestBody Product product, @PathVariable String email) throws UserNotFoundException {
         try {
             responseEntity = new ResponseEntity<>(userProductService.saveUserProduct(product, email), HttpStatus.CREATED);
@@ -51,7 +51,7 @@ public class UserProductController {
         }
         return responseEntity;
     }
-    @GetMapping("user/products/{email}")
+    @GetMapping("/user/products/{email}")
     public ResponseEntity<?> getAllUserProduct(@PathVariable String email) throws UserNotFoundException {
         try{
             responseEntity = new ResponseEntity<>(userProductService.getAllUserProduct(email), HttpStatus.OK);
@@ -61,7 +61,7 @@ public class UserProductController {
         }
         return responseEntity;
     }
-    @DeleteMapping("user/{email}/{productCode}")
+    @DeleteMapping("/user/{email}/{productCode}")
     public ResponseEntity<?> deleteUserProduct(@PathVariable String email,@PathVariable String productCode)
             throws UserNotFoundException, ProductNotFoundException
     {
